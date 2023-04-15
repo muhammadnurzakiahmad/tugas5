@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project2/views/dashboardview.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -9,7 +11,7 @@ class LoginView extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 150, bottom: 50),
+            padding: const EdgeInsets.only(top: 10, bottom: 50),
             child: Text(
               'Aplikasi\nPendataan Warga',
               style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
@@ -19,7 +21,7 @@ class LoginView extends StatelessWidget {
           Stack(
             children: [
               Container(
-                height: 300,
+                height: 400,
                 child: Card(
                   margin: EdgeInsets.only(top: 50, left: 20, right: 20),
                   color: Colors.brown[200],
@@ -47,7 +49,12 @@ class LoginView extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (bc) {
+                            return DashboardView();
+                          }));
+                        },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 40),
                           child: Text('Login'),
@@ -55,7 +62,7 @@ class LoginView extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30)),
-                            primary: Colors.red),
+                            backgroundColor: Colors.red),
                       )
                     ],
                   ),
